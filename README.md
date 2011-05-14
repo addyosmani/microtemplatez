@@ -1,0 +1,1 @@
+A very compact micro-templating solution created for learning purposes.
