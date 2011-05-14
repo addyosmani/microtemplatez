@@ -1,4 +1,4 @@
-A very compact micro-templating solution created for learning purposes.
+A very compact micro-templating solution created for learning purposes. Currently 0.2KB minified
 
 ### Sample usage
 
