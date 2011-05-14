@@ -6,13 +6,13 @@
 var templatez = (function(){
   return function(tmpl, data){
         return tmpl.replace((RegExp("{{\\s*([a-z0-9_][\\.a-z0-9_]*)\\s*}}", "gi")), function(tag, k){
-            var path = k.split("."),
-                len = path.length,
+            var p = k.split("."),
+                len = p.length,
                 temp = data,
                 i = 0;
             for(i=0; i<len; i++){
-                temp = temp[path[i]];
-                if (i === len - 1){
+                temp = temp[p[i]];
+                if (i === (len - 1)){
                     return temp;
                 }
             }
