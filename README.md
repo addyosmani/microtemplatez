@@ -2,24 +2,7 @@ A very compact micro-templating solution created for learning purposes. Currentl
 
 ### Sample usage
 
-Example 1: Basic templating
-
-```javascript
-        var markup1 = "Test 1: I am a {{user.age}} year old {{user.sex}} from {{country}}",
-            data1 = {
-                country: "Ireland",
-                user: {
-                    age: 25,
-                    name: "Addy",
-                    sex: "male"
-                }
-            };
-
-        alert(templatez(markup1, data1));
-```
-
-
-Example 2: Populating a separately defined template
+Example 1: Populating a separately defined template
 
 ```javascript
 	    <script type="text/micro" id="test">
@@ -38,6 +21,24 @@ Example 2: Populating a separately defined template
         alert('Test 2:' + templatez(markup2, data2));
 		</script>
 ```
+
+
+Example 2: Basic inline templating
+
+```javascript
+        var markup1 = "Test 1: I am a {{user.age}} year old {{user.sex}} from {{country}}",
+            data1 = {
+                country: "Ireland",
+                user: {
+                    age: 25,
+                    name: "Addy",
+                    sex: "male"
+                }
+            };
+
+        alert(templatez(markup1, data1));
+```
+
 
 
 Example 3: Templating a multi-dimensional array
