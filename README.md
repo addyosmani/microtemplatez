@@ -2,6 +2,8 @@ A very compact micro-templating solution created for learning purposes.
 
 ### Sample usage
 
+Example 1: Basic templating
+
 ```javascript
         var markup1 = "Test 1: I am a {{user.age}} year old {{user.sex}} from {{country}}",
             data1 = {
@@ -16,6 +18,8 @@ A very compact micro-templating solution created for learning purposes.
         alert(templatez(markup1, data1));
 ```
 
+
+Example 2: Populating a separately defined template
 
 ```javascript
 	    <script type="text/micro" id="test">
@@ -35,6 +39,8 @@ A very compact micro-templating solution created for learning purposes.
 		</script>
 ```
 
+
+Example 3: Templating a multi-dimensional array
 
 ```javascript
         var markup3 = "<li><b>{{Name}}</b> ({{ReleaseYear}})</li>",
