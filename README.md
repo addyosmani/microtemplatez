@@ -2,7 +2,7 @@ A very compact micro-templating solution created for learning purposes. Currentl
 
 ### Sample usage
 
-Example: Populating a separately defined template
+Example: Script-tag based templating
 
 ```javascript
 <script type="text/micro" id="myTemplate">
@@ -16,7 +16,6 @@ Example: Populating a separately defined template
 </script>
 
 <script>
-// alternatively $("#myTemplate").html() works just as well
 var markup = document.getElementById("myTemplate").innerHTML,
     data = {
         username: "addyosmani",
@@ -24,6 +23,31 @@ var markup = document.getElementById("myTemplate").innerHTML,
         avatar: "http://a0.twimg.com/profile_images/1256987680/addyosmaniicon_reasonably_small.jpg",
         language:'English',
         age: 25
+    };
+
+// Log the templated output or populate some an element
+// on the page with it
+console.log('Test:' + templatez(markup, data));
+</script>
+```
+
+Example: Support for nested paths (ie x.y)
+
+```javascript
+<script  id="myTemplate" type="text/micro">
+    <div class='username'> {{username}} </div>
+    <div class="features"> {{features.hair}}, {{features.eyes}}, {{features.height}}</div>
+</script>
+
+<script>
+var markup = $("#myTemplate").html(),
+    data = {
+        username: "addyosmani",
+        features:{
+            hair:'black',
+            eyes: 'brown',
+            height:'5.8'
+        }
     };
 
 // Log the templated output or populate some an element
