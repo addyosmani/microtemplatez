@@ -2,16 +2,16 @@ A very compact micro-templating solution created for learning purposes. Currentl
 
 ### Sample usage
 
-Example 1: Populating a separately defined template
+Example: Populating a separately defined template
 
 ```javascript
-<script type="text/micro" id="test">
+<script type="text/micro" id="myTemplate">
     <img src = "{{avatar}}" title = "{{username}}"  alt = "{{username}}" /> 
 	<span> {{username}} </span>
 </script>
 
 <script>
-var markup2 = document.getElementById("test").innerHTML,
+var markup = document.getElementById("myTemplate").innerHTML,
     data2 = {
         username: "addyosmani",
         avatar: "http://a0.twimg.com/profile_images/1256987680/addyosmaniicon_reasonably_small.jpg",
@@ -20,15 +20,15 @@ var markup2 = document.getElementById("test").innerHTML,
 
 // Log the templated output or populate some an element
 // on the page with it
-console.log('Test 2:' + templatez(markup2, data2));
+console.log('Test:' + templatez(markup, data2));
 </script>
 ```
 
 
-Example 2: Basic inline templating
+Example: Basic inline templating
 
 ```javascript
-var markup1 = "Test 1: I am a {{user.age}} year old {{user.sex}} from {{country}}",
+var markup = "Test: I am a {{user.age}} year old {{user.sex}} from {{country}}",
     data1 = {
         country: "Ireland",
         user: {
@@ -38,16 +38,16 @@ var markup1 = "Test 1: I am a {{user.age}} year old {{user.sex}} from {{country}
         }
     };
 
-console.log(templatez(markup1, data1));
+console.log(templatez(markup, data1));
 ```
 
 
-
-Example 3: Templating a multi-dimensional array
+Example: Templating an array
 
 ```javascript
-var markup3 = "<li><b>{{Name}}</b> ({{ReleaseYear}})</li>",
-    buffer = "";
+var markup = "<li><b>{{Name}}</b> ({{ReleaseYear}})</li>",
+    template = "",
+    len = 0;
 
 var movies = [{
     Name: "The Red Violin",
@@ -60,10 +60,12 @@ var movies = [{
     ReleaseYear: "1976"
 }];
 
-for (var i = 0; i < movies.length; i++) {
-    buffer += templatez(markup3, movies[i]);
+len =  movies.length;
+
+while(len--) {
+    template += templatez(markup, movies[len]);
 }
-console.log('Test 3:' + buffer);
+console.log('Test:' + template);
 ```
 
 #184-byte version
