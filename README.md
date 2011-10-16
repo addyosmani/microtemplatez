@@ -11,6 +11,7 @@ Example: Populating a separately defined template
 </script>
 
 <script>
+// alternatively $("#myTemplate").html() works just as well
 var markup = document.getElementById("myTemplate").innerHTML,
     data2 = {
         username: "addyosmani",
