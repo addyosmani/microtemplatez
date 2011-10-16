@@ -7,21 +7,28 @@ Example: Populating a separately defined template
 ```javascript
 <script type="text/micro" id="myTemplate">
     <img src = "{{avatar}}" title = "{{username}}"  alt = "{{username}}" /> 
-	<span> {{username}} </span>
+    <div class='info'>
+        <div class='realname'> {{realName}} </div>
+        <div class='age'> {{age}} </div>
+        <div class='lang'> {{language}} </div>
+    </div>
+	
 </script>
 
 <script>
 // alternatively $("#myTemplate").html() works just as well
 var markup = document.getElementById("myTemplate").innerHTML,
-    data2 = {
+    data = {
         username: "addyosmani",
+        realName: 'Addy Osmani',
         avatar: "http://a0.twimg.com/profile_images/1256987680/addyosmaniicon_reasonably_small.jpg",
+        language:'English',
         age: 25
     };
 
 // Log the templated output or populate some an element
 // on the page with it
-console.log('Test:' + templatez(markup, data2));
+console.log('Test:' + templatez(markup, data));
 </script>
 ```
 
@@ -30,7 +37,7 @@ Example: Basic inline templating
 
 ```javascript
 var markup = "Test: I am a {{user.age}} year old {{user.sex}} from {{country}}",
-    data1 = {
+    data = {
         country: "Ireland",
         user: {
             age: 25,
@@ -39,7 +46,7 @@ var markup = "Test: I am a {{user.age}} year old {{user.sex}} from {{country}}",
         }
     };
 
-console.log(templatez(markup, data1));
+console.log(templatez(markup, data));
 ```
 
 
