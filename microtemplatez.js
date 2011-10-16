@@ -10,7 +10,7 @@ var templatez = (function(){
                 len = p.length,
                 temp = data,
                 i = 0;
-            for(i=0; i<len; i++){
+            for(; i<len; i++){
                 temp = temp[p[i]];
                 if (i === (len - 1)){
                     return temp;
@@ -19,3 +19,5 @@ var templatez = (function(){
         });
     };
 }());
+
+

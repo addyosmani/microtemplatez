@@ -5,38 +5,40 @@ A very compact micro-templating solution created for learning purposes. Currentl
 Example 1: Populating a separately defined template
 
 ```javascript
-	    <script type="text/micro" id="test">
-	        <img src = "{{avatar}}" title = "{{username}}"  alt = "{{username}}" /> 
-			<span> {{username}} </span>
-	    </script>
-	
-		<script>
-        var markup2 = document.getElementById("test").innerHTML,
-            data2 = {
-                username: "addyosmani",
-                avatar: "http://a0.twimg.com/profile_images/1256987680/addyosmaniicon_reasonably_small.jpg",
-                age: 25
-            };
+<script type="text/micro" id="test">
+    <img src = "{{avatar}}" title = "{{username}}"  alt = "{{username}}" /> 
+	<span> {{username}} </span>
+</script>
 
-        alert('Test 2:' + templatez(markup2, data2));
-		</script>
+<script>
+var markup2 = document.getElementById("test").innerHTML,
+    data2 = {
+        username: "addyosmani",
+        avatar: "http://a0.twimg.com/profile_images/1256987680/addyosmaniicon_reasonably_small.jpg",
+        age: 25
+    };
+
+// Log the templated output or populate some an element
+// on the page with it
+console.log('Test 2:' + templatez(markup2, data2));
+</script>
 ```
 
 
 Example 2: Basic inline templating
 
 ```javascript
-        var markup1 = "Test 1: I am a {{user.age}} year old {{user.sex}} from {{country}}",
-            data1 = {
-                country: "Ireland",
-                user: {
-                    age: 25,
-                    name: "Addy",
-                    sex: "male"
-                }
-            };
+var markup1 = "Test 1: I am a {{user.age}} year old {{user.sex}} from {{country}}",
+    data1 = {
+        country: "Ireland",
+        user: {
+            age: 25,
+            name: "Addy",
+            sex: "male"
+        }
+    };
 
-        alert(templatez(markup1, data1));
+console.log(templatez(markup1, data1));
 ```
 
 
@@ -44,22 +46,27 @@ Example 2: Basic inline templating
 Example 3: Templating a multi-dimensional array
 
 ```javascript
-        var markup3 = "<li><b>{{Name}}</b> ({{ReleaseYear}})</li>",
-            buffer = "";
+var markup3 = "<li><b>{{Name}}</b> ({{ReleaseYear}})</li>",
+    buffer = "";
 
-        var movies = [{
-            Name: "The Red Violin",
-            ReleaseYear: "1998"
-        }, {
-            Name: "Eyes Wide Shut",
-            ReleaseYear: "1999"
-        }, {
-            Name: "The Inheritance",
-            ReleaseYear: "1976"
-        }];
+var movies = [{
+    Name: "The Red Violin",
+    ReleaseYear: "1998"
+}, {
+    Name: "Eyes Wide Shut",
+    ReleaseYear: "1999"
+}, {
+    Name: "The Inheritance",
+    ReleaseYear: "1976"
+}];
 
-        for (var i = 0; i < movies.length; i++) {
-            buffer += templatez(markup3, movies[i]);
-        }
-        alert('Test 3:' + buffer);
+for (var i = 0; i < movies.length; i++) {
+    buffer += templatez(markup3, movies[i]);
+}
+console.log('Test 3:' + buffer);
+```
+
+#184-byte version
+```javascript
+function t(a,b){return a.replace(RegExp("{{\\s*([a-z0-9_][\\.a-z0-9_]*)\\s*}}","gi"),function(a,c){var d=c.split("."),e=d.length,f=b,g=0;for(;g<e;g++){f=f[d[g]];if(g===e-1)return f}})}
 ```
