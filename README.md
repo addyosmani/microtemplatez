@@ -1,4 +1,4 @@
-A very compact micro-templating solution created for learning purposes. Currently 0.2KB minified
+A very compact micro-templating solution created for learning purposes. Currently under 180 bytes minified, 168 using a few other optimizations.
 
 ### Sample usage
 
@@ -134,7 +134,7 @@ console.log('Test:' + template);
 </script>
 ```
 
-#184-byte version
+#168-byte version
 ```javascript
-function t(a,b){return a.replace(RegExp("{{\\s*([a-z0-9_][\\.a-z0-9_]*)\\s*}}","gi"),function(a,c){var d=c.split("."),e=d.length,f=b,g=0;for(;g<e;g++){f=f[d[g]];if(g===e-1)return f}})}
+function t(a,b){return a.replace(RegExp("{{\\s*([a-z0-9_][\\.a-z0-9_]*)\\s*}}","gi"),function(a,c){var d=c.split("."),e=d.length,f=b,g=0;while(e--)f=f[d[e]];return f})}
 ```
