@@ -74,7 +74,7 @@ console.log(templatez(markup, data));
 ```
 
 
-Example: Templating an array
+Example: Templating an array of objects
 
 ```javascript
 var markup = "<li><b>{{Name}}</b> ({{ReleaseYear}})</li>",
@@ -98,6 +98,40 @@ while(len--) {
     template += templatez(markup, movies[len]);
 }
 console.log('Test:' + template);
+```
+
+Example: Templating JSON
+
+```javascript
+<script>
+var markup = "<li><b>{{Name}}</b> ({{ReleaseYear}}), Rating:{{Rating}}/5</li>",
+    template = "",
+    len = 0;
+
+var jsonMovies = {
+    "movie1": {
+        "Name": "TheRedViolin",
+        "ReleaseYear": "1998",
+        "Rating": "3"
+
+    },
+    "movie2": {
+        "Name": "EyesWideShut",
+        "ReleaseYear": "1999",
+        "Rating" : "2.5"
+    },
+    "movie3": {
+        "Name": "TheInheritance",
+        "ReleaseYear": "1976",
+        "Rating": "3"
+    }
+};
+
+for(var item in jsonMovies){
+    template += templatez(markup, jsonMovies[item]);
+}
+console.log('Test:' + template);
+</script>
 ```
 
 #184-byte version
