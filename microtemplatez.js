@@ -1,7 +1,7 @@
 /*!
-* Compact micro-templating implementation
+* Microtemplatez - a compact micro-templating implementation
 * Copyright: Addy Osmani, 2011.
-* Licensed under MIT/GPL licenses
+* Licensed under a dual-MIT/GPL license
 */
 ;( function ( window, doc, undef ) {
 
