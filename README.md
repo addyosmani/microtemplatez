@@ -1,4 +1,10 @@
-A very compact micro-templating solution created for learning purposes. Currently under 180 bytes minified, 168 using a few other optimizations.
+##Microtemplatez
+
+This project presents a very compact micro-templating solution created for learning purposes. It's currently under 180 bytes minified, 168 using a few other optimizations (see the end of the readme). 
+
+Unlike some of the more production-ready solutions out there that really need to factor in a rich API, microtemplatez provides developers an easily readable implementation that relies on regular expressions for parsing templates. 
+
+Examples are offered below that demonstrate how this solution can be used to address common templating problems and a tutorial that takes this work further is planned for the future.
 
 ### Sample usage
 
