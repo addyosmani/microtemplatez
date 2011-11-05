@@ -6,7 +6,7 @@
 ;( function ( window, doc, undef ) {
 
     templatez = function( tmpl, data ) {
-        return tmpl.replace((RegExp("{{\\s*([a-z0-9_][\\.a-z0-9_]*)\\s*}}", "gi")), function (tag, k) {
+        return tmpl.replace((RegExp("{{\\s*([a-z0-9_][.a-z0-9_]*)\\s*}}", "gi")), function (tag, k) {
             var p = k.split("."),
                 len = p.length,
                 temp = data,
