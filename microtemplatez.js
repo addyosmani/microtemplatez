@@ -3,9 +3,9 @@
 * Copyright: Addy Osmani, 2011.
 * Licensed under a dual-MIT/GPL license
 */
-;( function ( window, doc, undef ) {
+;( function ( root ) {
 
-    templatez = function( tmpl, data ) {
+    var templatez = function( tmpl, data ) {
         return tmpl.replace((RegExp("{{\\s*([a-z0-9_][\\.a-z0-9_]*)\\s*}}", "gi")), function (tag, k) {
             var p = k.split("."),
                 len = p.length,
@@ -18,13 +18,13 @@
         });
     };
 
-    getTemplatez = function(){
-        return templatez;
+    if (typeof exports !== 'undefined') {
+        root = exports;
+    } else {
+        root.templatez = templatez;
     }
 
-    window.templatez = getTemplatez();
-
-} )( this, this.document );
+} )( this );
 
 
 
