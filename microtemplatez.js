@@ -1,11 +1,11 @@
 /*!
-* Microtemplatez - a compact micro-templating implementation
+* Compact micro-templating implementation
 * Copyright: Addy Osmani, 2011.
-* Licensed under a dual-MIT/GPL license
+* Licensed under MIT/GPL licenses
 */
-;( function ( root ) {
+;( function ( window, doc, undef ) {
 
-    var templatez = function( tmpl, data ) {
+    templatez = function( tmpl, data ) {
         return tmpl.replace((RegExp("{{\\s*([a-z0-9_][\\.a-z0-9_]*)\\s*}}", "gi")), function (tag, k) {
             var p = k.split("."),
                 len = p.length,
@@ -18,14 +18,13 @@
         });
     };
 
-    if (typeof exports !== 'undefined') {
-        root = exports;
-    } else {
-        root.templatez = templatez;
+    getTemplatez = function(){
+        return templatez;
     }
 
-} )( this );
+    window.templatez = getTemplatez();
 
+} )( this, this.document );
 
 
 
