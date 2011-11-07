@@ -1,12 +1,12 @@
 /*!
-* Compact micro-templating implementation
+* Microtemplatez - a compact micro-templating implementation
 * Copyright: Addy Osmani, 2011.
-* Licensed under MIT/GPL licenses
+* Licensed under a dual-MIT/GPL license
 */
 ;( function ( window, doc, undef ) {
 
     templatez = function( tmpl, data ) {
-        return tmpl.replace((RegExp("{{\\s*([a-z0-9_][\\.a-z0-9_]*)\\s*}}", "gi")), function (tag, k) {
+        return tmpl.replace((RegExp("{{\\s*([a-z0-9_][.a-z0-9_]*)\\s*}}", "gi")), function (tag, k) {
             var p = k.split("."),
                 len = p.length,
                 temp = data,
